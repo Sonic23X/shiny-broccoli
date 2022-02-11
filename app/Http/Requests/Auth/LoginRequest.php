@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use App\Models\{Log, User};
 
 class LoginRequest extends FormRequest
 {
@@ -44,9 +45,14 @@ class LoginRequest extends FormRequest
     public function authenticate()
     {
         $this->ensureIsNotRateLimited();
+        $date = \Carbon\Carbon::now()->setTimezone('America/Mexico_City');
 
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
+
+            $user = User::where('email', $this->only('email')['email'])->first();
+            if ($user != null)
+                Log::create(['user_id' => $user->id, 'access' => $date, 'status' => 0]);
 
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
@@ -54,6 +60,8 @@ class LoginRequest extends FormRequest
         }
 
         RateLimiter::clear($this->throttleKey());
+
+        Log::create(['user_id' => Auth::user()->id, 'access' => $date, 'status' => 1]);
     }
 
     /**

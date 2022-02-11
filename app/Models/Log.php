@@ -17,6 +17,7 @@ class Log extends Model
     protected $fillable = [
         'user_id',
         'access',
+        'status'
     ];
 
     /**
@@ -27,4 +28,14 @@ class Log extends Model
     protected $casts = [
         'access' => 'datetime',
     ];
+
+    /**
+     * Get the user associated with the Log
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

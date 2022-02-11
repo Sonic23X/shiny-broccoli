@@ -14,20 +14,28 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Correo</th>
+                                <th>Status</th>
                                 <th>Fecha y hora</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $user)
+                            @foreach($logs as $log)
                             <tr class="border border-gray-500">
                                 <td>
-                                    {{$user->name}}
+                                    {{$log->user->name}}
                                 </td>
                                 <td>
-                                    {{$user->email}}
+                                    {{$log->user->email}}
                                 </td>
                                 <td>
-                                    {{$user->created_at->toDateTimeString()}}
+                                    @if ($log->status == 1)
+                                    Exitoso
+                                    @else
+                                    Fallido
+                                    @endif
+                                </td>
+                                <td>
+                                    {{$log->access->toDateTimeString()}}
                                 </td>
                             </tr>
                             @endforeach
