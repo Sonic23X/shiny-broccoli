@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Log extends Model
+class Cat extends Model
 {
     use HasFactory;
 
@@ -15,16 +15,8 @@ class Log extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'access',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'access' => 'datetime',
+        'name',
+        'breed',
+        'age',
     ];
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Log extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -15,8 +15,9 @@ class Log extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'access',
+        'name',
+        'desc',
+        'price',
     ];
 
     /**
@@ -25,6 +26,6 @@ class Log extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'access' => 'datetime',
+        'price' => 'float',
     ];
 }

@@ -12,6 +12,9 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    const SYSA = 'sistema1';
+    const SYSB = 'sistema2';
+    const SYSC = 'sistema3';
 
     /**
      * The attributes that are mass assignable.

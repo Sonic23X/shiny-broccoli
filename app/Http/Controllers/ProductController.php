@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\{
+    Log,
+    Product
+};
 
 class ProductController extends Controller
 {
-    /**
+    /**z
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
