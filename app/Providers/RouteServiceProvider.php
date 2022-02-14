@@ -18,6 +18,9 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/dashboard';
+    public const SYSA = '/productos';
+    public const SYSB = '/users';
+    public const SYSC = '/gatos';
 
     /**
      * The controller namespace for the application.

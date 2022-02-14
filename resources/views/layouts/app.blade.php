@@ -32,10 +32,32 @@
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                <a href="{{ route('dashboard') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                     {{ $header }}
                                 </a>
                             </div>
+                            @if (Auth::user()->hasRole('sistema1'))
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <x-nav-link :href="route('productos.index')">
+                                    {{ __('Productos') }}
+                                </x-nav-link>
+                            </div>
+                            @endif
+                            @if (Auth::user()->hasRole('sistema2'))
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <x-nav-link :href="route('users.index')">
+                                    {{ __('Usuarios') }}
+                                </x-nav-link>
+                            </div>
+                            @endif
+                            @if (Auth::user()->hasRole('sistema3'))
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <x-nav-link :href="route('gatos.index')">
+                                    {{ __('Mascotas') }}
+                                </x-nav-link>
+                            </div>
+                            @endif
+
                         </div>
 
                         <!-- Settings Dropdown -->
@@ -87,6 +109,27 @@
                             {{ $header }}
                         </x-responsive-nav-link>
                     </div>
+                    @if (Auth::user()->hasRole('sistema1'))
+                    <div class="pt-2 pb-3 space-y-1">
+                        <x-responsive-nav-link :href="route('productos.index')">
+                            {{ __('Productos') }}
+                        </x-responsive-nav-link>
+                    </div>
+                    @endif
+                    @if (Auth::user()->hasRole('sistema2'))
+                    <div class="pt-2 pb-3 space-y-1">
+                        <x-responsive-nav-link :href="route('users.index')">
+                            {{ __('Usuarios') }}
+                        </x-responsive-nav-link>
+                    </div>
+                    @endif
+                    @if (Auth::user()->hasRole('sistema3'))
+                    <div class="pt-2 pb-3 space-y-1">
+                        <x-responsive-nav-link :href="route('gatos.index')">
+                            {{ __('Mascotas') }}
+                        </x-responsive-nav-link>
+                    </div>
+                    @endif
 
                     <!-- Responsive Settings Options -->
                     <div class="pt-4 pb-1 border-t border-gray-200">

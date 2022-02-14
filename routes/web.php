@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\{
+    Route,
+    Auth
+};
 use App\Http\Controllers\{
     DashboardController,
     ProductController,
@@ -26,9 +29,9 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function() {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/productos', ProductController::class)->names('producto');
-    Route::resource('/users', UserController::class)->names('usuarios');
-    Route::resource('/gatos', CatController::class)->names('gatos');
+    Route::resource('/productos', ProductController::class)->middleware('role:sistema1')->names('productos');
+    Route::resource('/users', UserController::class)->middleware('role:sistema2')->names('usuarios');
+    Route::resource('/gatos', CatController::class)->middleware('role:sistema3')->names('gatos');
 
 });
 
