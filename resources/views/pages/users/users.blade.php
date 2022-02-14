@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Usuarios') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mb-2">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Inicio - log') }}
+                {{ __('Usuarios') }}
             </h2>
         </div>
         <br>
@@ -20,28 +20,16 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Correo</th>
-                                <th>Status</th>
-                                <th>Fecha y hora</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($logs as $log)
+                            @foreach($users as $user)
                             <tr class="border border-gray-500">
                                 <td>
-                                    {{$log->user->name}}
+                                    {{$user->name}}
                                 </td>
                                 <td>
-                                    {{$log->user->email}}
-                                </td>
-                                <td>
-                                    @if ($log->status == 1)
-                                    Exitoso
-                                    @else
-                                    Fallido
-                                    @endif
-                                </td>
-                                <td>
-                                    {{$log->access->toDateTimeString()}}
+                                    {{$user->mail}}
                                 </td>
                             </tr>
                             @endforeach
