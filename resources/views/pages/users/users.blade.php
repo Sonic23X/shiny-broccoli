@@ -10,6 +10,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Usuarios') }}
             </h2>
+            <a href="{{ route('usuarios.create') }}">
+                Nuevo usuario
+            </a>
         </div>
         <br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -20,6 +23,7 @@
                             <tr>
                                 <th>Nombre</th>
                                 <th>Correo</th>
+                                <th>Creado el</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,7 +33,10 @@
                                     {{$user->name}}
                                 </td>
                                 <td>
-                                    {{$user->mail}}
+                                    {{$user->email}}
+                                </td>
+                                <td>
+                                    {{$user->created_at}}
                                 </td>
                             </tr>
                             @endforeach

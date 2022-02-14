@@ -10,6 +10,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Mascotas') }}
             </h2>
+            <a href="{{ route('gatos.create') }}">
+                Nueva mascota
+            </a>
         </div>
         <br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

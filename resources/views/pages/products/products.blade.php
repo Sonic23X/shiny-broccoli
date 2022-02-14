@@ -10,6 +10,9 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Productos') }}
             </h2>
+            <a href="{{ route('productos.create') }}">
+                Nuevo producto
+            </a>
         </div>
         <br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -19,8 +22,8 @@
                         <thead class="border border-gray-500 bg-gray-500">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>Fecha y hora</th>
+                                <th>Descripción</th>
+                                <th>Costo</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,7 +36,7 @@
                                     {{$product->desc}}
                                 </td>
                                 <td>
-                                    {{$product->price}}
+                                    ${{$product->price}}
                                 </td>
                             </tr>
                             @endforeach

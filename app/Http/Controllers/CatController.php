@@ -28,7 +28,7 @@ class CatController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.cats.new');
     }
 
     /**
@@ -39,7 +39,19 @@ class CatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'age' => 'required|numeric',
+            'breed' => 'required'
+        ]);
+
+        Cat::create([
+            'name' => $request->name,
+            'age' => $request->age,
+            'breed' => $request->breed
+        ]);
+
+        return redirect()->route('gatos.index');
     }
 
     /**
