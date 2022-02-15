@@ -53,8 +53,8 @@
                             @endif
                             @if (Auth::user()->hasRole('sistema3'))
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <x-nav-link :href="route('gatos.index')">
-                                    {{ __('Mascotas') }}
+                                <x-nav-link :href="route('asambleas.index')">
+                                    {{ __('Historial') }}
                                 </x-nav-link>
                             </div>
                             @endif
@@ -126,8 +126,8 @@
                     @endif
                     @if (Auth::user()->hasRole('sistema3'))
                     <div class="pt-2 pb-3 space-y-1">
-                        <x-responsive-nav-link :href="route('gatos.index')">
-                            {{ __('Mascotas') }}
+                        <x-responsive-nav-link :href="route('asambleas.index')">
+                            {{ __('Historial') }}
                         </x-responsive-nav-link>
                     </div>
                     @endif

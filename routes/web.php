@@ -8,7 +8,7 @@ use App\Http\Controllers\{
     DashboardController,
     ProductController,
     UserController,
-    CatController
+    AssemblyController
 };
 
 /*
@@ -31,7 +31,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/productos', ProductController::class)->middleware('role:sistema1')->names('productos');
     Route::resource('/users', UserController::class)->middleware('role:sistema2')->names('usuarios');
-    Route::resource('/gatos', CatController::class)->middleware('role:sistema3')->names('gatos');
+    Route::resource('/asambleas',AssemblyController::class)->middleware('role:sistema3')->names('asambleas');
 
 });
 
